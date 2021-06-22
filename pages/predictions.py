@@ -36,7 +36,7 @@ def predict(usd_goal,category,timeline,sub_category,
 #        text
         ]]
     )
-    y_pred = pipeline.predict(df)[0]
+    y_pred = pipeline.predict(df)
     return f'{y_pred}'
 
 
@@ -50,7 +50,7 @@ column1 = dbc.Col(
             max=1000000, 
             step=1, 
             value=800, 
-            marks={n: str(n) for n in range(1,22,2)}, 
+            marks={n: str(n) for n in range(1,1000001,100000)}, 
             className='mb-5', 
         ), 
         dcc.Markdown('#### How long will your project be open for funding?'), 
@@ -85,7 +85,7 @@ column1 = dbc.Col(
                 {'label': 'Theater', 'value': 'theater'},
 
         ],
-        value='NYC'
+        value='art'
         ),
  
         dcc.Markdown('#### What is the sub-category?'), 
@@ -93,11 +93,11 @@ column1 = dbc.Col(
             id='sub_category',
             className='mb-5',
             options=[
-                {'label': 'New York City', 'value': 'NYC'},
+                {'label': 'Ceramics', 'value': 'ceramics'},
                 {'label': 'Montreal', 'value': 'MTL'},
                 {'label': 'San Francisco', 'value': 'SF'}
         ],
-        value='NYC'
+        value='ceramics'
         ), 
         # dcc.Markdown('#### Text'), 
         # dcc.Textarea(
